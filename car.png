@@ -1,0 +1,36 @@
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up the display
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Car Sprite Example")
+
+# Load the car image
+car_image = pygame.image.load('car.png')
+car_rect = car_image.get_rect()
+car_rect.topleft = (screen_width // 2, screen_height // 2)
+
+# Main game loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Clear the screen
+    screen.fill((255, 255, 255))
+
+    # Draw the car image
+    screen.blit(car_image, car_rect)
+
+    # Update the display
+    pygame.display.flip()
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
